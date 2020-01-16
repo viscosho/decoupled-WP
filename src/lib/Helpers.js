@@ -153,7 +153,6 @@ export default class Helpers {
 
      }
 
-     
     /**
      * formatDate - Convert ISO date to desired format
      *

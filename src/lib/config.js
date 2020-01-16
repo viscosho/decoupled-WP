@@ -2,14 +2,14 @@ import WPAPI from 'wpapi';
 
 let config = {
     body: document.querySelector( 'body' ),
-    siteTitle: document.querySelector( '.archive-title' ),
+    siteTitle: document.querySelector( '.site-title a' ),
     siteDescription: document.querySelector( '.site-description' ),
     title: document.querySelector( '.title-editor' ),
-    content: document.querySelector( '.entry-content' ),
+    content: document.querySelector( '#content-editor' ),
     menuContainer: document.querySelector( '#mainNav ul' ),
     articleContainer: document.querySelector( 'main#main' ),
     sidebar: document.querySelector( '#secondary' ),
-    apiRoot: 'https://to-demo.lsdev.biz/wp-json',
+    apiRoot: 'https://to-demo.lsdev.biz/wp-json/',
 };
 
 config.page404 = {

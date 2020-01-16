@@ -1,3 +1,5 @@
+import Header from './components/Header';
+
 export default class App {
 
     /**
@@ -5,7 +7,7 @@ export default class App {
      * @return {void} Not meant to return
      */
     static init() {
-        console.log( 'Welcome' );
+        Header.render();
     }
 
 }
