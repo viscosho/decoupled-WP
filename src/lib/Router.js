@@ -3,6 +3,8 @@ import Helpers from './Helpers';
 import Page from '../components/Page';
 import Posts from '../components/Posts';
 import Post from '../components/Post';
+import Tours from '../components/Tours';
+import Tour from '../components/Tour';
 import CategoryWidget from '../components/Widgets/Category/Index';
 import Category from '../components/Categories/Index';
 import TagWidget from '../components/Widgets/Tag/Index';
@@ -86,6 +88,20 @@ export default class Router {
             CategoryWidget.render();
             TagWidget.render();
 
+
+        }if ( '/tours' == slug ) {
+
+            Helpers.clearContent();
+            config.body.className = '';
+            config.body.classList.add( 'tours' );
+            Tours.render();
+
+        } else if ( '/tour' == slug.substring( 0, 5 ) ) {
+
+            Helpers.clearContent();
+            config.body.className = '';
+            config.body.classList.add( 'tour' );
+            Tour.render( slug.substring( 6 ) );
 
         } else if ( '/category' == slug.substring( 0, 9 ) ) {
 
