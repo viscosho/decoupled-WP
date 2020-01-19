@@ -10,6 +10,7 @@ let config = {
     articleContainer: document.querySelector( 'main#main' ),
     sidebar: document.querySelector( '#secondary' ),
     apiRoot: 'https://to-demo.lsdev.biz/wp-json/',
+    apiUrl: 'https://to-demo.lsdev.biz',
 };
 
 config.page404 = {

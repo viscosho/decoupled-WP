@@ -1,4 +1,6 @@
-import Header from './components/Header';
+import Header from './components/Header/Index';
+import Menu from './components/Menu/Index';
+import Router from './lib/Router';
 
 export default class App {
 
@@ -8,6 +10,8 @@ export default class App {
      */
     static init() {
         Header.render();
+        Menu.render();
+        Router.init();
     }
 
 }

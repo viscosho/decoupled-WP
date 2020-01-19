@@ -45,6 +45,7 @@ export default class Helpers {
             date = Helpers.formatDate( content.date ),
             lastModified = Helpers.formatDate( content.modified ),
             author = content._embedded.author[ 0 ].name,
+            url = config.apiUrl,
             featuredImg = '';
 
         if ( content._embedded[ 'wp:featuredmedia' ] ) {
@@ -56,7 +57,7 @@ export default class Helpers {
             contentMarkup += `<p class="meta">Author: ${author} | ${date}</p>`;
         }
         if ( featuredImg ) {
-            contentMarkup += `<img class="feature" src="${featuredImg}">`;
+            contentMarkup += `<img class="feature" src="${url}${featuredImg}">`;
         }
         contentMarkup += content.content.rendered;
         if ( 'page' == content.type ) {
@@ -122,6 +123,24 @@ export default class Helpers {
         config.articleContainer.appendChild( articleEl );
 
     };
+
+
+    /**
+     * renderHeader - Renders an HTML header on the Page
+     *
+     * @param {String} title Title to display
+     * @param {String} titleTag h1, h2, etc for HTML header tag to use
+     * @return {void} Not meant to return
+     */
+    static renderHeader( title, titleTag = 'h1' ) {
+
+        const titleEl = document.createElement( titleTag ),
+            titleText = document.createTextNode( title );
+
+        titleEl.appendChild( titleText );
+        config.articleContainer.appendChild( titleEl );
+
+    }
 
 
     /**
