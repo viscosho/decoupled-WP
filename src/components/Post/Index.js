@@ -1,5 +1,6 @@
 import config from '../../lib/config';
 import Helpers from '../../lib/Helpers';
+import Comments from '../Comments/Index';
 
 export default class Post {
 
@@ -15,6 +16,7 @@ export default class Post {
             .embed()
             .then( post => {
                 Helpers.renderContent( post[ 0 ], 'h1', false );
+                Comments.render( post[0].id );
             } )
             .catch( err => {
                 console.log( `Error: ${err}` );

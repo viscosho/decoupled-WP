@@ -45,8 +45,10 @@ export default class Helpers {
             date = Helpers.formatDate( content.date ),
             lastModified = Helpers.formatDate( content.modified ),
             author = content._embedded.author[ 0 ].name,
-            url = config.apiUrl,
-            featuredImg = '';
+            featuredImg = '',
+            url = config.apiUrl;
+
+        //console.log( content );
 
         if ( content._embedded[ 'wp:featuredmedia' ] ) {
             featuredImg = content._embedded[ 'wp:featuredmedia' ][ 0 ].source_url;
@@ -197,8 +199,11 @@ export default class Helpers {
      * @return {void} Not meant to return
      */
     static clearPage() {
-        config.sidebar.innerHTML = '';
-        Helpers.clearContent();
+        return new Promise( resolve => {
+            config.sidebar.innerHTML = '';
+            Helpers.clearContent();
+            resolve();
+        });
     }
 
 
@@ -207,8 +212,15 @@ export default class Helpers {
      * @return {void} Not meant to return
      */
     static clearContent() {
-        config.body.className = '';
-        config.articleContainer.innerHTML = '';
+
+        return new Promise( resolve => {
+
+            config.body.className = '';
+            config.articleContainer.innerHTML = '';
+            resolve();
+
+        });
+
     }
 
 }

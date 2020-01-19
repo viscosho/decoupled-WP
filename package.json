@@ -4,20 +4,20 @@
   "description": "Example of using the Node JavaScript WP API Client  - https://github.com/WP-API/node-wpapi",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --https",
+    "start": "webpack-dev-server --open",
     "build": "webpack --config webpack.config.js"
   },
   "keywords": [],
-  "author": "Virginia Garcia",
+  "author": "Zac Gordon",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
-    "babel-loader": "^8.0.5",
-    "uglifyjs-webpack-plugin": "^2.1.2",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.1"
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
     "wpapi": "^1.2.1"

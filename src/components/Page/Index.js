@@ -10,20 +10,24 @@ export default class Page {
      */
     static render( slug ) {
 
-        config.wp.pages()
-            .slug( slug )
-            .embed()
-            .perPage( 1 )
-            .then( pages => {
-                if ( pages[ 0 ] ) {
-                    Helpers.renderContent( pages[ 0 ] );
-                } else {
-                    Helpers.renderContent( config.page404 );
-                }
-            } )
-            .catch( err => {
-                console.log( `Error: ${err}` );
-            } );
+        return new Promise( resolve => {
+
+            config.wp.pages()
+                .slug( slug )
+                .embed()
+                .perPage( 1 )
+                .then( pages => {
+                    if ( pages[ 0 ] ) {
+                        Helpers.renderContent( pages[ 0 ] );
+                    } else {
+                        Helpers.renderContent( config.page404 );
+                    }
+                    resolve();
+                } )
+                .catch( err => {
+                    console.log( `Error: ${err}` );
+                } );
+        } );
 
     }
 

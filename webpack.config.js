@@ -1,5 +1,4 @@
 var path = require("path");
-var UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   entry: ["./src/App.js"],
@@ -10,21 +9,23 @@ module.exports = {
   devtool: "cheap-eval-source-map",
   devServer: {
     port: 9000,
-    contentBase: path.join(__dirname, "dist")
+    contentBase: path.join(__dirname, "dist"),
+    https: true
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"]
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env"]
+            }
           }
-        }
+        ]
       }
     ]
-  },
-  plugins: [new UglifyJSPlugin()]
+  }
 };

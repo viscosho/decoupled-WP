@@ -1,4 +1,4 @@
-import Header from './components/Header/Index';
+import Header from './components/Header';
 import Menu from './components/Menu/Index';
 import Router from './lib/Router';
 
