@@ -11,11 +11,11 @@ export default class Tours {
 
         config.wp.tours()
             .embed()
-            .perPage( 5 )
+            .perPage( 12 )
             .then( tours => {
                 Helpers.renderHeader( 'Tour', 'h1' );
                 let renderedTours = tours.map( content => {
-                    Helpers.renderContent( content, 'h2', true );
+                    Helpers.renderTour( content, 'h2', true );
                 } );
             } )
             .catch( err => {

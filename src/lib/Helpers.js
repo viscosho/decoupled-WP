@@ -72,6 +72,38 @@ export default class Helpers {
 
     }
 
+    /**
+     * getTourMarkup - Get the markup for tour content
+     *
+     * @param  {Object} content Individual content from the API
+     * @return {Object} Content markup with content
+     */
+    static getTourMarkup( content ) {
+
+        let contentEl = document.createElement( 'div' ),
+            contentMarkup = '',
+            date = Helpers.formatDate( content.date ),
+            featuredImg = '',
+            url = config.apiUrl;
+
+        //console.log( content );
+
+        if ( content._embedded[ 'wp:featuredmedia' ] ) {
+            featuredImg = content._embedded[ 'wp:featuredmedia' ][ 0 ].source_url;
+        }
+
+        contentEl.classList.add( 'entry-content' );
+        if ( featuredImg ) {
+            contentMarkup += `<img class="feature" src="${url}${featuredImg}">`;
+        }
+        contentMarkup += content.content.rendered;
+        contentMarkup += '</div>';
+        contentEl.innerHTML = contentMarkup;
+
+        return contentEl;
+
+    }
+
 
     /**
      * renderHeader - Renders title to Page
@@ -118,6 +150,27 @@ export default class Helpers {
         const articleEl = document.createElement( 'article' ),
             titleEl = Helpers.getTitleMarkup( content, titleTag, addLink ),
             contentEl = Helpers.getContentMarkup( content );
+
+        articleEl.classList.add( content.type );
+        articleEl.appendChild( titleEl );
+        articleEl.appendChild( contentEl );
+        config.articleContainer.appendChild( articleEl );
+
+    };
+
+    /**
+     * renderTour - Renders content to Page
+     *
+     * @param  {Object} content Post or Page content object
+     * @param {String} titleTag h1, h2, etc for HTML header tag to use
+     * @param {Boolean} addLink Whether to display link in title
+     * @return {void} Not meant to return
+     */
+    static renderTour( content, titleTag = 'h1', addLink = false ) {
+
+        const articleEl = document.createElement( 'article' ),
+            titleEl = Helpers.getTitleMarkup( content, titleTag, addLink ),
+            contentEl = Helpers.getTourMarkup( content );
 
         articleEl.classList.add( content.type );
         articleEl.appendChild( titleEl );

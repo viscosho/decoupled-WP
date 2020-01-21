@@ -34,9 +34,9 @@ config.page404 = {
 
 config.wp = new WPAPI( { endpoint: config.apiRoot } );
 
-var apiPromise = WPAPI.discover( config.apiUrl );
+//var apiPromise = WPAPI.discover( config.apiUrl );
 
-// Defines a CPT handler `tours()` on the current WP instance
-//toursCall = config.wp.posts().type( 'tours' );
+config.wp.tours = config.wp.registerRoute(`wp/v2`, `/tours`);
+//config.wp.tour = config.wp.registerRoute(`wp/v2`, `/tours/(?P<id>`);
 
 export default config;
