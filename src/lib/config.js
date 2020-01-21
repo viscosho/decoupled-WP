@@ -31,6 +31,12 @@ config.page404 = {
     }
 };
 
+
 config.wp = new WPAPI( { endpoint: config.apiRoot } );
+
+var apiPromise = WPAPI.discover( config.apiUrl );
+
+// Defines a CPT handler `tours()` on the current WP instance
+//toursCall = config.wp.posts().type( 'tours' );
 
 export default config;

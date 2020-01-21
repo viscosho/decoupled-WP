@@ -10,7 +10,7 @@ export default class Tour {
      */
     static render( slug ) {
 
-        config.wp.posts()
+        config.wp.tour()
             .slug( slug )
             .embed()
             .then( tour => {

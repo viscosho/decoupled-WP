@@ -9,7 +9,7 @@ export default class Tours {
      */
     static render() {
 
-        config.wp.posts()
+        config.wp.tours()
             .embed()
             .perPage( 5 )
             .then( tours => {

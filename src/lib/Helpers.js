@@ -168,7 +168,7 @@ export default class Helpers {
              case 'user':
                  return '#/user/' + content.slug;
                  break;
-             case 'post':
+             case 'tour':
                  return '#/tour/' + content.slug;
                  break;
              default:
